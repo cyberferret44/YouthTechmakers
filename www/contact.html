@@ -26,14 +26,16 @@
 
 <body>
 
-    <script src="//code.jquery.com/jquery-1.10.2.js"></script>
-    <script> 
+  <script src="//code.jquery.com/jquery-1.10.2.js"></script>
+  <script> 
     $(function(){
       $("#header").load("header.html");
+      //$("#footer").load("footer.html");
+      //$("#copyright").load("copyright.html");
     });
-    </script> 
+  </script> 
 
-    <div id="header"></div>
+  <div id="header"></div>
   <!-- END header -->
 
   <div class="inner-page">
@@ -91,6 +93,7 @@
         <div class="col-md-6 order-2 mb-5">
           <div class="row justify-content-right">
             <div class="col-md-8 mx-auto contact-form-contact-info">
+              <!--
               <p class="d-flex">
                 <span class="ion-ios-location icon mr-5"></span>
                 <span>34 Street Name, City Name Here, United States</span>
@@ -100,10 +103,11 @@
                 <span class="ion-ios-telephone icon mr-5"></span>
                 <span>+1 242 4942 290</span>
               </p>
+              -->
   
               <p class="d-flex">
                 <span class="ion-android-mail icon mr-5"></span>
-                <span>info@yourdomain.com</span>
+                <span>youthtechmakers@gmail.com</span>
               </p>
             </div>
           </div>
@@ -116,7 +120,7 @@
     <div class="container">
       <div class="row mb-5">
         <div class="col-md-4 mb-5">
-          <h3 class="mb-4">About Youth Techmakers</h3>
+          <h3>About Youth Techmakers</h3>
           <p class="mb-5">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Alias nihil numquam aspernatur
             inventore sint eligendi nostrum!</p>
           <ul class="list-unstyled footer-link d-flex footer-social">
@@ -125,29 +129,38 @@
             <li><a href="#" class="p-2"><span class="fa fa-linkedin"></span></a></li>
             <li><a href="#" class="p-2"><span class="fa fa-instagram"></span></a></li>
           </ul>
-
+  
         </div>
         <div class="col-md-5 mb-5 pl-md-5">
           <div class="mb-5">
-            <h3 class="mb-4">Contact Info</h3>
+            <h3>Contact Info</h3>
             <ul class="list-unstyled footer-link">
               <li class="d-block">
                 <span class="d-block">Address:</span>
-                <span class="text-white">34 Street Name, City Name Here, United States</span>
-              </li>
-              <li class="d-block">
-                <span class="d-block">Telephone:</span><span class="text-white">+1 242 4942 290</span>
-              </li>
-              <li class="d-block">
-                <span class="d-block">Email:</span><span class="text-white">info@yourdomain.com</span>
-              </li>
+                <span>34 Street Name, City Name Here, United States</span></li>
+              <li class="d-block"><span class="d-block">Telephone:</span><span>+1 242 4942 290</span></li>
+              <li class="d-block"><span class="d-block">Email:</span><span>info@yourdomain.com</span></li>
             </ul>
           </div>
-
-
+  
+          <div class="mb-4">
+            <h3>Subscribe</h3>
+            <form action="#" method="post" class="site-block-subscribe">
+              <div class="input-group mb-3">
+                <input type="text" class="form-control border-secondary bg-transparent" placeholder="Enter your email"
+                  aria-label="Enter Email" aria-describedby="button-addon2">
+                <div class="input-group-append">
+                  <button class="btn btn-warning" type="button" id="button-addon2">Subscribe</button>
+                </div>
+              </div>
+            </form>
+  
+          </div>
         </div>
         <div class="col-md-3 mb-5">
-          <h3 class="mb-4">Quick Links</h3>
+  
+  
+          <h3>Quick Links</h3>
           <ul class="list-unstyled footer-link">
             <li><a href="#">About</a></li>
             <li><a href="#">Terms of Use</a></li>
@@ -156,7 +169,7 @@
           </ul>
         </div>
         <div class="col-md-3">
-
+  
         </div>
       </div>
       <div class="row">
@@ -173,13 +186,12 @@
       </div>
     </div>
   </footer>
-  <!-- END footer -->
-
+  
   <!-- loader -->
   <div id="loader" class="show fullscreen"><svg class="circular" width="48px" height="48px">
-      <circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee" />
-      <circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10"
-        stroke="#f4b214" /></svg></div>
+    <circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee" />
+    <circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10"
+      stroke="#f4b214" /></svg></div>
 
   <script src="js/jquery-3.2.1.min.js"></script>
   <script src="js/jquery-migrate-3.0.1.min.js"></script>
