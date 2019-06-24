@@ -1,216 +1,93 @@
 (function($) {
+	"use strict"
 
-	'use strict';
-
-	// bootstrap dropdown hover
-
-  // loader
-  var loader = function() {
-    setTimeout(function() { 
-      if($('#loader').length > 0) {
-        $('#loader').removeClass('show');
-      }
-    }, 1);
-  };
-  loader();
-
-	
-	$('nav .dropdown').hover(function(){
-		var $this = $(this);
-		$this.addClass('show');
-		$this.find('> a').attr('aria-expanded', true);
-		$this.find('.dropdown-menu').addClass('show');
-	}, function(){
-		var $this = $(this);
-			$this.removeClass('show');
-			$this.find('> a').attr('aria-expanded', false);
-			$this.find('.dropdown-menu').removeClass('show');
+	///////////////////////////
+	// Preloader
+	$(window).on('load', function() {
+		$("#preloader").delay(600).fadeOut();
 	});
 
-  $('.navbar .dropdown > a').click(function(){
-    location.href = this.href;
-  });
-
-	$('#dropdown04').on('show.bs.dropdown', function () {
-	  console.log('show');
-  });
-  
-  
-	// home slider
-	$('.home-slider').owlCarousel({
-    loop:true,
-    autoplay: true,
-    margin:0,
-    animateOut: 'fadeOut',
-    animateIn: 'fadeIn',
-    nav:true,
-    autoplayHoverPause: true,
-    items: 1,
-    dragTouch: false,
-    navText : ["<span class='ion-chevron-left'></span>","<span class='ion-chevron-right'></span>"],
-    responsive:{
-      0:{
-        items:1,
-        nav:false
-      },
-      600:{
-        items:1,
-        nav:false
-      },
-      1000:{
-        items:1,
-        nav:true
-      }
-    }
+	///////////////////////////
+	// Scrollspy
+	$('body').scrollspy({
+		target: '#nav',
+		offset: $(window).height() / 2
 	});
 
-  $('.nonloop-block-11').owlCarousel({
-      center: false,
-      items: 1,
-      loop: true,
-      autoplay: true,
-      stagePadding: 20,
-      margin:50,
-      nav: true,
-      smartSpeed: 1000,
-      navText: ['<span class="ion-chevron-left">', '<span class="ion-chevron-right">'],
-      responsive:{
-        600:{
-          stagePadding: 20,
-          items:1
-        },
-        800:{
-          stagePadding: 20,
-          items:2
-        },
-        1000:{
-          // stagePadding: 200,
-          items:2
-        }
-      }
-    });
-
-	// owl carousel
-	var majorCarousel = $('.js-carousel-1');
-	majorCarousel.owlCarousel({
-    loop:true,
-    autoplay: true,
-    stagePadding: 7,
-    margin: 20,
-    animateOut: 'fadeOut',
-    animateIn: 'fadeIn',
-    nav: true,
-    autoplayHoverPause: true,
-    items: 3,
-    navText : ["<span class='ion-chevron-left'></span>","<span class='ion-chevron-right'></span>"],
-    responsive:{
-      0:{
-        items:1,
-        nav:false
-      },
-      600:{
-        items:2,
-        nav:false
-      },
-      1000:{
-        items:3,
-        nav:true,
-        loop:false
-      }
-  	}
+	///////////////////////////
+	// Smooth scroll
+	$("#nav .main-nav a[href^='#']").on('click', function(e) {
+		e.preventDefault();
+		var hash = this.hash;
+		$('html, body').animate({
+			scrollTop: $(this.hash).offset().top
+		}, 600);
 	});
 
-	// owl carousel
-	var major2Carousel = $('.js-carousel-2');
-	major2Carousel.owlCarousel({
-    loop:true,
-    autoplay: true,
-    stagePadding: 7,
-    margin: 20,
-    animateOut: 'fadeOut',
-    animateIn: 'fadeIn',
-    nav: true,
-    autoplayHoverPause: true,
-    items: 4,
-    navText : ["<span class='ion-chevron-left'></span>","<span class='ion-chevron-right'></span>"],
-    responsive:{
-      0:{
-        items:1,
-        nav:false
-      },
-      600:{
-        items:3,
-        nav:false
-      },
-      1000:{
-        items:4,
-        nav:true,
-        loop:false
-      }
-  	}
+	$('#back-to-top').on('click', function(){
+		$('body,html').animate({
+			scrollTop: 0
+		}, 600);
 	});
 
-  var siteStellar = function () {
-    $(window).stellar({
-      responsive: false,
-      parallaxBackgrounds: true,
-      parallaxElements: true,
-      horizontalScrolling: false,
-      hideDistantElements: false,
-      scrollProperty: 'scroll'
-    });
-  };
-  siteStellar();
+	///////////////////////////
+	// Btn nav collapse
+	$('#nav .nav-collapse').on('click', function() {
+		$('#nav').toggleClass('open');
+	});
 
-	var contentWayPoint = function() {
-		var i = 0;
-		$('.element-animate').waypoint( function( direction ) {
+	///////////////////////////
+	// Mobile dropdown
+	$('.has-dropdown a').on('click', function() {
+		$(this).parent().toggleClass('open-drop');
+	});
 
-			if( direction === 'down' && !$(this.element).hasClass('element-animated') ) {
-				
-				i++;
+	///////////////////////////
+	// On Scroll
+	$(window).on('scroll', function() {
+		var wScroll = $(this).scrollTop();
 
-				$(this.element).addClass('item-animate');
-				setTimeout(function(){
+		// Fixed nav
+		wScroll > 1 ? $('#nav').addClass('fixed-nav') : $('#nav').removeClass('fixed-nav');
 
-					$('body .element-animate.item-animate').each(function(k){
-						var el = $(this);
-						setTimeout( function () {
-							var effect = el.data('animate-effect');
-							if ( effect === 'fadeIn') {
-								el.addClass('fadeIn element-animated');
-							} else if ( effect === 'fadeInLeft') {
-								el.addClass('fadeInLeft element-animated');
-							} else if ( effect === 'fadeInRight') {
-								el.addClass('fadeInRight element-animated');
-							} else {
-								el.addClass('fadeInUp element-animated');
-							}
-							el.removeClass('item-animate');
-						},  k * 100);
-					});
-					
-				}, 100);
-				
+		// Back To Top Appear
+		wScroll > 700 ? $('#back-to-top').fadeIn() : $('#back-to-top').fadeOut();
+	});
+
+	///////////////////////////
+	// magnificPopup
+	$('.work').magnificPopup({
+		delegate: '.lightbox',
+		type: 'image'
+	});
+
+	///////////////////////////
+	// Owl Carousel
+	$('#about-slider').owlCarousel({
+		items:1,
+		loop:true,
+		margin:15,
+		nav: true,
+		navText : ['<i class="fa fa-angle-left"></i>','<i class="fa fa-angle-right"></i>'],
+		dots : true,
+		autoplay : true,
+		animateOut: 'fadeOut'
+	});
+
+	$('#testimonial-slider').owlCarousel({
+		loop:true,
+		margin:15,
+		dots : true,
+		nav: false,
+		autoplay : true,
+		responsive:{
+			0: {
+				items:1
+			},
+			992:{
+				items:2
 			}
-
-		} , { offset: '95%' } );
-	};
-	contentWayPoint();
-
-  var slideImage = function() {
-    $(".slide-image").each(function () {
-      var bg = $(this).data("bg");
-      var pos = $(this).data("kenburn-start");
-
-      $(this).css({
-        "background-image": "url(" + bg + ")",
-        "transform-origin": pos
-      });
-    });
-  };
-  slideImage();
-  
-  
+		}
+	});
 
 })(jQuery);
