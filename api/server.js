@@ -3,16 +3,25 @@ const app = express();
 const path = require(`path`);
 const bodyParser = require('body-parser');
 
+app.use(express.static(__dirname + '/views'));
 app.use(bodyParser.urlencoded({ extended: true }));
 
+// Loads main page
 app.get('/', (req, res) => {
-  res.send('Hello from App Engine!');
+  res.sendFile(path.join(__dirname, '/views/index.html'));
 });
 
+app.get('/donate', (req, res) => {
+  res.sendFile(path.join(__dirname, '/views/donate.html'));
+});
+
+
+// delete this later
 app.get('/submit', (req, res) => {
   res.sendFile(path.join(__dirname, '/views/form.html'));
 });
 
+// delete this later
 app.post('/submit', (req, res) => {
   console.log({
     name: req.body.name,
