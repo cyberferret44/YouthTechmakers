@@ -1,10 +1,16 @@
 const express = require('express');
 const app = express();
 const path = require(`path`);
+const metadata = require('gcp-metadata');
 const bodyParser = require('body-parser');
+const {OAuth2Client} = require('google-auth-library');
+const oAuth2Client = new OAuth2Client();
 
 app.use(express.static(__dirname + '/views'));
 app.use(bodyParser.urlencoded({ extended: true }));
+
+// Cache externally fetched information for future invocations
+let aud;
 
 // Loads main page
 app.get('/', (req, res) => {
@@ -31,6 +37,57 @@ app.post('/submit', (req, res) => {
     message: req.body.message
   });
   res.send('Thanks for your message!... ' + req.body.name + " : " + req.body.message);
+});
+
+async function audience() {
+  if (!aud && (await metadata.isAvailable())) {
+    let project_number = await metadata.project('numeric-project-id');
+    let project_id = await metadata.project('project-id');
+
+    aud = '/projects/' + project_number + '/apps/' + project_id;
+  }
+
+  return aud;
+}
+
+async function validateAssertion(assertion) {
+  if (!assertion) {
+    return {};
+  }
+
+  // Check that the assertion's audience matches ours
+  const aud = await audience();
+
+  // Fetch the current certificates and verify the signature on the assertion
+  const response = await oAuth2Client.getIapPublicKeys();
+  const ticket = await oAuth2Client.verifySignedJwtWithCertsAsync(
+    assertion,
+    response.pubkeys,
+    aud,
+    ['https://cloud.google.com/iap']
+  );
+  const payload = ticket.getPayload();
+
+  // Return the two relevant pieces of information
+  return {
+    email: payload.email,
+    sub: payload.sub,
+  };
+}
+
+app.get('/login', async (req, res) => {
+  const assertion = req.header('X-Goog-IAP-JWT-Assertion');
+  let email = 'None';
+  try {
+    const info = await validateAssertion(assertion);
+    email = info.email;
+  } catch (error) {
+    console.log(error);
+  }
+  res
+    .status(200)
+    .send(`Hello ${email}`)
+    .end();
 });
 
 // Listen to the App Engine-specified port, or 8080 otherwise
