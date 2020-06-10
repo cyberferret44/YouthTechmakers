@@ -1,0 +1,4 @@
+# To run the app you need the following commands
+cd api
+npm install
+npm start
