@@ -41,8 +41,11 @@ build/Release
 node_modules/
 jspm_packages/
 
+# node modules
+node_modules/
+
 # Snowpack dependency directory (https://snowpack.dev/)
-web_modules/
+web_gles/
 
 # TypeScript cache
 *.tsbuildinfo
