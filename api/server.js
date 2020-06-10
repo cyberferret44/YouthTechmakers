@@ -15,6 +15,9 @@ app.get('/donate', (req, res) => {
   res.sendFile(path.join(__dirname, '/views/donate.html'));
 });
 
+app.get('/electronics', (req, res) => {
+  res.sendFile(path.join(__dirname, '/views/electronics.html'));
+});
 
 // delete this later
 app.get('/submit', (req, res) => {

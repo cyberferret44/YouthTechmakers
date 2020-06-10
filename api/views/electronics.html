@@ -29,25 +29,97 @@
 	<link type="text/css" rel="stylesheet" href="css/style.css" />
 
 	<script src="//code.jquery.com/jquery-1.10.2.js"></script>
-	<script> 
-		$(function(){
+	<script>
+		$(function () {
 			$("#navbar").load("templates/navbar.html");
 			$("#contact").load("templates/contact.html");
 			$("#footer").load("templates/footer.html");
 		});
-	</script> 
+	</script>
+
+	<style>
+		* {
+			box-sizing: border-box;
+		}
+
+		/* Create three equal columns that floats next to each other */
+		.level-cell {
+			float: left;
+			width: 10%;
+			padding: 10px;
+			height: 300px;
+			text-align: center;
+		}
+
+		.column1 {
+			float: left;
+			width: 90%;
+			padding: 10px;
+			height: 300px;
+			text-align: center;
+		}
+
+		.column2 {
+			float: left;
+			width: 45%;
+			padding: 10px;
+			height: 300px;
+			text-align: center;
+		}
+
+		.column3 {
+			float: left;
+			width: 30%;
+			padding: 10px;
+			height: 300px;
+			text-align: center;
+		}
+
+		.column4 {
+			float: left;
+			width: 22.5%;
+			padding: 10px;
+			height: 300px;
+			text-align: center;
+		}
+
+		.class-table {
+			width: 90%;
+			margin: auto;
+			margin-top: 2%;
+			background-color: rgba(0, 0, 0, .85);
+			border-radius: 25px;
+			border: 2px solid rgb(250, 247, 94);
+			padding: 20px;
+		}
+
+		/* Clear floats after the columns */
+		.row:after {
+			content: "";
+			display: table;
+			clear: both;
+		}
+
+		body {
+			background: url(./img/background.jpg) no-repeat center center fixed; 
+			-webkit-background-size: cover;
+			-moz-background-size: cover;
+			-o-background-size: cover;
+			background-size: cover;
+		}
+	</style>
 </head>
 
 <body>
 	<!-- Header -->
 	<!--<header id="home">-->
-		<!-- Background Image -->
-	<div class="bg-img" style="background-image: url('./img/background.jpg'); height: 100vh;">
+	<!-- Background Image -->
+	<!--<div class="bg-img" style="background-image: url('./img/background.jpg'); height: 100vh;">
 		<div class="overlay"></div>
-	</div>
+	</div>-->
 	<!-- /Background Image -->
 
-	<div id="navbar"></div>
+	<!--<div id="navbar"></div>-->
 	<!--</header>-->
 	<!-- /Header -->
 
@@ -60,19 +132,54 @@
 		<!- Row --
 		<div class="row">
 			<!- about -->
-	<div style="background-color:rgba(0, 0, 0, 0.8); font-size: large; font-weight:bold; text-align: center; margin-top:5%; margin-bottom:5%; margin-left:2%; margin-right:2%;">
-		<iframe width="300" height="200"
-			src="https://www.youtube.com/embed/BdIlbIIxCLM">
-		</iframe>
-		<br/>
-		<iframe width="300" height="200" style="margin-right:400px"
-			src="https://www.youtube.com/embed/BdIlbIIxCLM">
-		</iframe>
-		<iframe width="300" height="200"
-			src="https://www.youtube.com/embed/BdIlbIIxCLM">
-		</iframe>
+
+	<div class="class-table">
+		<div class="row" style="background-color: rgba(0, 0, 0, .85);">
+			<div class="level-cell">
+				Level 1
+			</div>
+			<div class="column1">
+				<iframe style="margin:auto;" width="300" height="200" src="https://www.youtube.com/embed/g6geO58R7Tk" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+			</div>
+		</div>
+		<div class="row" style="background-color: rgba(15, 15, 15, .85);">
+			<div class="level-cell">
+				Level 2
+			</div>
+			<div class="column2">
+				<iframe width="300" height="200" src="https://www.youtube.com/embed/-dRR8v1OJ-4" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+			</div>
+			<div class="column2">
+				<iframe width="300" height="200" src="https://www.youtube.com/embed/X9Ym4OFHnEQ" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+			</div>
+		</div>
+		<div class="row" style="background-color: rgba(30, 30, 30, .85);">
+			<div class="level-cell">
+				Level 3
+			</div>
+			<div class="column3">
+				<iframe width="300" height="200" src="https://www.youtube.com/embed/-dRR8v1OJ-4" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+			</div>
+			<div class="column3">
+				<iframe width="300" height="200" src="https://www.youtube.com/embed/X9Ym4OFHnEQ" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+			</div>
+			<div class="column3">
+				<iframe width="300" height="200" src="https://www.youtube.com/embed/X9Ym4OFHnEQ" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+			</div>
+		</div>
+		<div class="row" style="background-color: rgba(45, 45, 45, .85);">
+			<div class="level-cell">
+				Level 4
+			</div>
+			<div class="column2">
+				<iframe width="300" height="200" src="https://www.youtube.com/embed/-dRR8v1OJ-4" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+			</div>
+			<div class="column2">
+				<iframe width="300" height="200" src="https://www.youtube.com/embed/X9Ym4OFHnEQ" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+			</div>
+		</div>
 	</div>
-			<!-- /about --
+	<!-- /about --
 		</div>
 		<!- /Row --
 
@@ -82,11 +189,10 @@
 	<!--</div>-->
 	<!-- /About -->
 
-	<div id="contact"></div>
-	<div id="footer"></div>
+	<!--<div id="footer"></div>-->
 
 	<!-- Back to top -->
-	<div id="back-to-top"></div>
+	<!--<div id="back-to-top"></div>-->
 	<!-- /Back to top -->
 
 	<!-- Preloader -->
