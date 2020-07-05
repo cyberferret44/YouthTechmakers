@@ -313,13 +313,6 @@ main .column.right {
     background: #2b2b2b;
 }
 
-
-
-
-
-
-
-
 /* Video Modal
 -----------------------------------------*/
 .video-modal,
@@ -365,7 +358,7 @@ main .column.right {
 
 .video-modal .overlay {
     z-index: 0;
-    background: rgba(13, 1, 61, 0.82);
+    background: rgba(0, 0, 0, 0.9);
     /* overlay color */
 
     opacity: 0.0;
@@ -505,7 +498,7 @@ add class to the body to reveal */
 .class-table {
     width: 90%;
     margin: auto;
-    background-color: rgba(0, 0, 0, .85);
+    background-color: rgba(0, 0, 0, .9);
     border-radius: 25px;
     border: 2px solid rgb(250, 247, 94);
     padding: 20px;
@@ -529,12 +522,4 @@ add class to the body to reveal */
     content: "";
     display: table;
     clear: both;
-}
-
-body {
-    background: url(./img/background.jpg) no-repeat center center fixed;
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    -o-background-size: cover;
-    background-size: cover;
 }
