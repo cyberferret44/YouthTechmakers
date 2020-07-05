@@ -559,6 +559,12 @@ styles are down below --
 			object-fit: contain;
 		}
 
+		.nonclickable-icon {
+			width: 80%;
+			max-height: 90%;
+			object-fit: contain;
+		}
+
 		/* Clear floats after the columns */
 		.row:after {
 			content: "";
@@ -659,27 +665,42 @@ styles are down below --
 	<div class="class-table">
 		<div class="row" style="background-color: rgba(0, 0, 0, .85);">
 			<div class="level-cell">
-				Example 1
-			</div>
-			<div class="column3">
-				<img class="clickable-icon" src="img/icons/breadboard_basics3.png" onclick="showmodal()" />
-			</div>
-			<div class="column3">
-				<img class="clickable-icon" src="img/icons/breadboard_basics3.png" onclick="showmodal()" />
-			</div>
-			<div class="column3">
-				<img class="clickable-icon" src="img/icons/breadboard_basics3.png" onclick="showmodal()" />
-			</div>
-		</div>
-		<div class="row" style="background-color: rgba(0, 0, 0, .85);">
-			<div class="level-cell">
-				Example 1
+				Level 1
 			</div>
 			<div class="column1">
 				<a href="https://www.youtube.com/watch?v=g6geO58R7Tk" data-youtube-id="g6geO58R7Tk"
 					class="video-thumb js-trigger-video-modal">
-					<img class="video-banner-img clickable-icon" src="img/icons/breadboard_basics3.png" alt="" />
+					<img class="video-banner-img clickable-icon" src="img/icons/breadboards.png" alt="" />
 				</a>
+			</div>
+		</div>
+		<div class="row" style="background-color: rgba(0, 0, 0, .85);">
+			<div class="level-cell">
+				Level 2
+			</div>
+			<div class="column2">
+				<a href="https://www.youtube.com/watch?v=-dRR8v1OJ-4" data-youtube-id="-dRR8v1OJ-4"
+					class="video-thumb js-trigger-video-modal">
+					<img class="video-banner-img clickable-icon" src="img/icons/switches.png" alt="" />
+				</a>
+			</div>
+			<div class="column2">
+				<a href="https://www.youtube.com/watch?v=X9Ym4OFHnEQ" data-youtube-id="X9Ym4OFHnEQ"
+					class="video-thumb js-trigger-video-modal">
+					<img class="video-banner-img clickable-icon" src="img/icons/resistors.png" alt="" />
+				</a>
+			</div>
+		</div>
+		<div class="row" style="background-color: rgba(0, 0, 0, .85);">
+			<div class="level-cell">
+				Level 3
+			</div>
+			<div class="column2">
+					<img class="video-banner-img nonclickable-icon" src="img/icons/switches_grey.png" alt="" />
+
+			</div>
+			<div class="column2">
+					<img class="video-banner-img nonclickable-icon" src="img/icons/resistors_grey.png" alt="" />
 			</div>
 		</div>
 		<!--<div class="row" style="background-color: rgba(0, 0, 0, .85);">
