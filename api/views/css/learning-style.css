@@ -490,9 +490,9 @@ add class to the body to reveal */
 .class-table {
     width: 90%;
     margin: auto;
-    background-color: rgba(0, 0, 0, .9);
+    background-color: rgba(0, 0, 0, .95);
     border-radius: 25px;
-    border: 2px solid rgb(250, 247, 94);
+    border: 2px solid rgb(150, 150, 150);
     padding: 20px;
 }
 
