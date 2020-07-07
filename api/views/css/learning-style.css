@@ -458,32 +458,40 @@ add class to the body to reveal */
 .level-cell {
     float: left;
     width: 10%;
-    padding-top: 10px;
-    height: 300px;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    max-height: 300px;
+    height: fit-content;
     text-align: center;
 }
 
 .column1 {
     float: left;
     width: 90%;
-    padding-top: 10px;
-    height: 300px;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    max-height: 300px;
+    height: fit-content;
     text-align: center;
 }
 
 .column2 {
     float: left;
     width: 45%;
-    padding-top: 10px;
-    height: 300px;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    max-height: 300px;
+    height: fit-content;
     text-align: center;
 }
 
 .column3 {
     float: left;
     width: 30%;
-    padding-top: 10px;
-    height: 300px;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    max-height: 300px;
+    height: fit-content;
     text-align: center;
 }
 
@@ -494,43 +502,44 @@ add class to the body to reveal */
     border-radius: 25px;
     border: 2px solid rgb(150, 150, 150);
     padding: 20px;
+    padding-bottom: 100%; /* TODO remove this later */
 }
 
 .clickable-icon1 {
-    max-width: 26.64%;
+    max-width: 24%;
     cursor: pointer;
     max-height: 90%;
     object-fit: contain;
 }
 
 .clickable-icon2 {
-    max-width: 53.3%;
+    max-width: 48%;
     cursor: pointer;
     max-height: 90%;
     object-fit: contain;
 }
 
 .clickable-icon3 {
-    max-width: 80%;
+    max-width: 72;
     cursor: pointer;
     max-height: 90%;
     object-fit: contain;
 }
 
 .nonclickable-icon1 {
-    max-width: 26.64%;
+    max-width: 24%;
     max-height: 90%;
     object-fit: contain;
 }
 
 .nonclickable-icon2 {
-    max-width: 53.3%;
+    max-width: 48%;
     max-height: 90%;
     object-fit: contain;
 }
 
 .nonclickable-icon3 {
-    max-width: 80%;
+    max-width: 72%;
     max-height: 90%;
     object-fit: contain;
 }
