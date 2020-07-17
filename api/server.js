@@ -76,18 +76,7 @@ async function validateAssertion(assertion) {
 }
 
 app.get('/login', async (req, res) => {
-  const assertion = req.header('X-Goog-IAP-JWT-Assertion');
-  let email = 'None';
-  try {
-    const info = await validateAssertion(assertion);
-    email = info.email;
-  } catch (error) {
-    console.log(error);
-  }
-  res
-    .status(200)
-    .send(`Hello ${email}`)
-    .end();
+  res.sendFile(path.join(__dirname, '/views/login.html'));
 });
 
 // Listen to the App Engine-specified port, or 8080 otherwise
