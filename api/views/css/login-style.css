@@ -70,6 +70,8 @@
   padding: 17px 0px;
   font-family: roboto;
   font-size: 14px;
+  padding-left:40px;
+  padding-right:40px;
   /* background-image: -webkit-gradient(linear, 0 0, 0 100%,   from(#4d90fe), to(#4787ed)); */
 }
 

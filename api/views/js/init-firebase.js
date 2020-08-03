@@ -1,4 +1,4 @@
-(function () {
+function initFirebase() {
 
     // Initialize Firebase
     const firebaseConfig = {
@@ -69,4 +69,6 @@
             btnLogout.hidden = true;
         }
     })
-}());
+}
+
+window.onload = initFirebase();
