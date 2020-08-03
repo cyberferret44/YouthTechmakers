@@ -11,19 +11,28 @@
 
 	<!-- CSS -->
 	<link type="text/css" rel="stylesheet" href="css/bootstrap.min.css" />
-	<link type="text/css" rel="stylesheet" href="css/style.css" />
 	<link type="text/css" rel="stylesheet" href="css/learning-style.css" />
-	
-	<!-- javascript -->
+	<link type="text/css" rel="stylesheet" href="css/style.css" />
+	<link type="text/css" rel="stylesheet" href="css/login-style.css" />
+
+	<!-- javascript third party -->
 	<script type="text/javascript" src="js/third-party/jquery.min.js"></script>
-	<script type="text/javascript" src="js/third-party/bootstrap.min.js"></script>
 	<script type="text/javascript" src="js/third-party/main.js"></script>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+	<!-- javascript -->
+	<script type="text/javascript" src="js/login.js"></script>
 	<script type="text/javascript" src="js/youtube-modal.js"></script>
 
 	<!-- templates -->
+	<div id="login-modal"></div>
 	<div id="youtube-video-modal"></div>
 	<script>
 		$(function () {
+			// todo, if user logged in, then do not load the login stuff
+			$("#login-modal").load("templates/login-modal-template.html");
 			$("#youtube-video-modal").load("templates/youtube-video-modal-template.html");
 		});
 	</script>
@@ -41,7 +50,12 @@
 </head>
 
 <body>
-	<button>Login</button>
+	<!-- Button trigger modal -->
+	<div class="login-btn">
+		<a href="#" class="button" data-toggle="modal" data-target="#loginmodal">Login</a>
+	</div>
+
+	<!-- End -->
 	<div class="class-table">
 		<div class="row">
 			<div class="level-cell">

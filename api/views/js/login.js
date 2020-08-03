@@ -1,3 +1,0 @@
-function dostuff() {
-    alert("hello");
-}
