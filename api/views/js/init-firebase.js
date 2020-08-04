@@ -45,7 +45,11 @@ function initButtons() {
         const promise = auth.signInWithEmailAndPassword(email, pass);
 
         // Error handling
-        promise.catch(e => {
+        promise
+        .then(() => {
+            $('.cd-user-modal').removeClass('is-visible');  // Dismiss modal after successful login
+        })
+        .catch(e => {
             console.log(e.message);
             alert('Invalid Login');
         });
@@ -71,7 +75,11 @@ function initButtons() {
             const promise = auth.createUserWithEmailAndPassword(email, pass);
 
             // Error handling
-            promise.catch(e => {
+            promise
+            .then(() => {
+                $('.cd-user-modal').removeClass('is-visible');  // Dismiss modal after successful signup
+            })
+            .catch(e => {
                 console.log(e.message);
             });
         }
