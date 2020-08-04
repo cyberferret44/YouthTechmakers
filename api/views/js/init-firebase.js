@@ -13,13 +13,29 @@ function initFirebase() {
     };
     firebase.initializeApp(firebaseConfig);
 
+    firebase.auth().onAuthStateChanged(firebaseUser => {
+        if (firebaseUser) {
+            console.log(firebaseUser); // TODO remove later
+            btnLogin.hidden = true;
+            btnSignup.hidden = true;
+            btnLogout.hidden = false;
+            alert('hello ' + firebaseUser.email);
+        } else {
+            btnLogin.hidden = false;
+            btnSignup.hidden = false;
+            btnLogout.hidden = true;
+        }
+    })
+}
+
+function initButtons() {
     // Variables
-    const username = document.getElementById("username");  
-    const password = document.getElementById("password");  
+    const username = document.getElementById("username");
+    const password = document.getElementById("password");
     const btnLogin = document.getElementById("btnLogin");
     const btnSignup = document.getElementById("btnSignup");
     const btnLogout = document.getElementById("btnLogout");
-    
+
     // Add login event
     btnLogin.addEventListener('click', e => {
         const email = username.value;
@@ -55,20 +71,14 @@ function initFirebase() {
             console.log(e.message);
         });
     })
-
-    firebase.auth().onAuthStateChanged(firebaseUser => {
-        if(firebaseUser) {
-            console.log(firebaseUser); // TODO remove later
-            btnLogin.hidden = true;
-            btnSignup.hidden = true;
-            btnLogout.hidden = false;
-            alert('hello ' + firebaseUser.email);
-        } else {
-            btnLogin.hidden = false;
-            btnSignup.hidden = false;
-            btnLogout.hidden = true;
-        }
-    })
 }
 
-window.onload = initFirebase();
+$(document).ready(function () {
+    const loginModalContent = document.getElementById("login-modal-content");
+    if (loginModalContent) {
+        $("#login-modal-content").load("templates/login-modal-template.html", function () {
+            initButtons(); // initialize the buttons when done loading
+        });
+    }
+    initFirebase();
+});
