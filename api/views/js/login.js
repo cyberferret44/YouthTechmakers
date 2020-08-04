@@ -20,9 +20,10 @@ jQuery(document).ready(function($){
 			// on mobile close submenu
 			$main_nav.children('ul').removeClass('is-visible');
 			//show modal layer
-			$form_modal.addClass('is-visible');	
-			//show the selected form
-			( $(event.target).is('.cd-signup') ) ? signup_selected() : login_selected();
+			if($(event.target).is('.cd-signin')) {
+				$form_modal.addClass('is-visible');	
+				login_selected();
+			}
 		}
 
 	});
