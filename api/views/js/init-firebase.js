@@ -12,20 +12,6 @@ function initFirebase() {
         measurementId: "G-3YK97L34B9"
     };
     firebase.initializeApp(firebaseConfig);
-
-    firebase.auth().onAuthStateChanged(firebaseUser => {
-        if (firebaseUser) {
-            console.log(firebaseUser); // TODO remove later
-            btnLogin.hidden = true;
-            btnSignup.hidden = true;
-            btnLogout.hidden = false;
-            alert('hello ' + firebaseUser.email); // TODO remove later
-        } else {
-            btnLogin.hidden = false;
-            btnSignup.hidden = false;
-            btnLogout.hidden = true;
-        }
-    })
 }
 
 function initButtons() {
@@ -47,6 +33,7 @@ function initButtons() {
     const btnSignup = document.getElementById("btnSignup");
     const btnLogout = document.getElementById("btnLogout");
     const btnResetPassword = document.getElementById("btnResetPassword");
+    const btnLaunchSigninModal = document.getElementById("btnLaunchSigninModal");
 
     // Add login event
     btnLogin.addEventListener('click', e => {
@@ -62,12 +49,12 @@ function initButtons() {
             console.log(e.message);
             alert('Invalid Login');
         });
-    })
+    });
 
     // Add log out
     btnLogout.addEventListener('click', e => {
         firebase.auth().signOut();
-    })
+    });
 
     // Add sign up event
     btnSignup.addEventListener('click', e => {
@@ -88,7 +75,19 @@ function initButtons() {
                 console.log(e.message);
             });
         }
-    })
+    });
+
+    // Show/Hide buttons based on user state
+    firebase.auth().onAuthStateChanged(firebaseUser => {
+        if (firebaseUser) {
+            console.log(firebaseUser); // TODO remove later
+            btnLaunchSigninModal.style = "display: none;";
+            btnLogout.style = "";
+        } else {
+            btnLaunchSigninModal.style = "";
+            btnLogout.style = "display: none;";
+        }
+    });
 }
 
 $(document).ready(function () {
