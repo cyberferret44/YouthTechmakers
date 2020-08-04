@@ -62,7 +62,7 @@ function initButtons() {
 
     // Add sign up event
     btnSignup.addEventListener('click', e => {
-        const username = signupUsername.value;
+        const username = signupUsername.value; // TODO add display name
         const email = signupEmail.value;
         const pass = signupPassword.value;
         const passVerify = signupPasswordVerify.value;
