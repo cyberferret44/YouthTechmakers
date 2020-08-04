@@ -498,11 +498,12 @@ add class to the body to reveal */
 .class-table {
     width: 90%;
     margin: auto;
-    background-color: rgba(0, 0, 0, .95);
+    background-color: rgba(0, 217, 255, 0.1);
     border-radius: 25px;
-    border: 2px solid rgb(150, 150, 150);
+    border: 4px solid rgb(255, 255, 255, .8);
     padding: 20px;
     padding-bottom: 100%; /* TODO remove this later */
+    margin-top: 20px;
 }
 
 .clickable-icon1 {
