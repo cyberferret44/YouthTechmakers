@@ -46,17 +46,6 @@ jQuery(document).ready(function($){
 		( $(event.target).is( $tab_login ) ) ? login_selected() : signup_selected();
 	});
 
-	//hide or show password
-	$('.hide-password').on('click', function(){
-		var $this= $(this),
-			$password_field = $this.prev('input');
-		
-		( 'password' == $password_field.attr('type') ) ? $password_field.attr('type', 'text') : $password_field.attr('type', 'password');
-		( 'Hide' == $this.text() ) ? $this.text('Show') : $this.text('Hide');
-		//focus and move cursor to the end of input field
-		$password_field.putCursorAtEnd();
-	});
-
 	//show forgot-password form 
 	$forgot_password_link.on('click', function(event){
 		event.preventDefault();

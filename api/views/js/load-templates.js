@@ -1,0 +1,5 @@
+function loadTemplates() {
+    
+}
+
+loadTemplates();
