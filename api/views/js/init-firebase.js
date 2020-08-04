@@ -19,7 +19,7 @@ function initFirebase() {
             btnLogin.hidden = true;
             btnSignup.hidden = true;
             btnLogout.hidden = false;
-            alert('hello ' + firebaseUser.email);
+            alert('hello ' + firebaseUser.email); // TODO remove later
         } else {
             btnLogin.hidden = false;
             btnSignup.hidden = false;
@@ -29,17 +29,29 @@ function initFirebase() {
 }
 
 function initButtons() {
-    // Variables
-    const username = document.getElementById("username");
-    const password = document.getElementById("password");
+    // Login Variables
+    const usernameLogin = document.getElementById("signin-email");
+    const passwordLogin = document.getElementById("signin-password");
+
+    // Sign Up Variables
+    const signupUsername = document.getElementById("signup-username");
+    const signupEmail = document.getElementById("signup-email");
+    const signupPassword = document.getElementById("signup-password");
+    const signupPasswordVerify = document.getElementById("signup-password-verify");
+
+    // Recover Password Variables
+    const resetPasswordEmail = document.getElementById("reset-email");
+
+    // Buttons
     const btnLogin = document.getElementById("btnLogin");
     const btnSignup = document.getElementById("btnSignup");
     const btnLogout = document.getElementById("btnLogout");
+    const btnResetPassword = document.getElementById("btnResetPassword");
 
     // Add login event
     btnLogin.addEventListener('click', e => {
-        const email = username.value;
-        const pass = password.value;
+        const email = usernameLogin.value;
+        const pass = passwordLogin.value;
         const auth = firebase.auth();
 
         // Sign in
@@ -59,17 +71,23 @@ function initButtons() {
 
     // Add sign up event
     btnSignup.addEventListener('click', e => {
-        const email = username.value;
-        const pass = password.value;
+        const username = signupUsername.value;
+        const email = signupEmail.value;
+        const pass = signupPassword.value;
+        const passVerify = signupPasswordVerify.value;
         const auth = firebase.auth();
 
-        // Sign in
-        const promise = auth.createUserWithEmailAndPassword(email, pass);
+        if(pass !== passVerify) {
+            alert("Passwords do not match!"); // TODO make this a proper css error
+        } else {
+            // Sign in
+            const promise = auth.createUserWithEmailAndPassword(email, pass);
 
-        // Error handling
-        promise.catch(e => {
-            console.log(e.message);
-        });
+            // Error handling
+            promise.catch(e => {
+                console.log(e.message);
+            });
+        }
     })
 }
 
