@@ -3,14 +3,9 @@ const app = express();
 const path = require(`path`);
 const metadata = require('gcp-metadata');
 const bodyParser = require('body-parser');
-const {OAuth2Client} = require('google-auth-library');
-const oAuth2Client = new OAuth2Client();
 
 app.use(express.static(__dirname + '/views'));
 app.use(bodyParser.urlencoded({ extended: true }));
-
-// Cache externally fetched information for future invocations
-let aud;
 
 // Loads main page
 app.get('/', (req, res) => {
