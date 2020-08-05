@@ -1,4 +1,122 @@
-jQuery(document).ready(function($){
+function initFirebase() {
+
+    // Initialize Firebase
+    const firebaseConfig = {
+        apiKey: "AIzaSyDyS-Fh-ECqjW8ZDz3y3SDn6JYVqnwDRvE",
+        authDomain: "youthtechmakers.firebaseapp.com",
+        databaseURL: "https://youthtechmakers.firebaseio.com",
+        projectId: "youthtechmakers",
+        storageBucket: "youthtechmakers.appspot.com",
+        messagingSenderId: "227350567149",
+        appId: "1:227350567149:web:213b0ade6418d550dd54e4",
+        measurementId: "G-3YK97L34B9"
+    };
+    firebase.initializeApp(firebaseConfig);
+}
+
+function initButtons() {
+    // Login Variables
+    const usernameLogin = document.getElementById("signin-email");
+    const passwordLogin = document.getElementById("signin-password");
+
+    // Sign Up Variables
+    const signupUsername = document.getElementById("signup-username");
+    const signupEmail = document.getElementById("signup-email");
+    const signupPassword = document.getElementById("signup-password");
+    const signupPasswordVerify = document.getElementById("signup-password-verify");
+
+    // Recover Password Variables
+    const resetPasswordEmail = document.getElementById("reset-email");
+
+    // Buttons
+    const btnLogin = document.getElementById("btnLogin");
+    const btnSignup = document.getElementById("btnSignup");
+    const btnLogout = document.getElementById("btnLogout");
+    const btnResetPassword = document.getElementById("btnResetPassword");
+    const btnLaunchSigninModal = document.getElementById("btnLaunchSigninModal");
+
+    // Add login event
+    btnLogin.addEventListener('click', e => {
+        const email = usernameLogin.value;
+        const pass = passwordLogin.value;
+        const auth = firebase.auth();
+
+        // Sign in
+        const promise = auth.signInWithEmailAndPassword(email, pass);
+
+        // Error handling
+        promise
+        .then(() => {
+            $('.cd-user-modal').removeClass('is-visible');  // Dismiss modal after successful login
+        })
+        .catch(e => {
+            console.log(e.message);
+            alert('Invalid Login');
+        });
+    });
+
+    // Add log out
+    btnLogout.addEventListener('click', e => {
+        firebase.auth().signOut();
+    });
+
+    // Add sign up event
+    btnSignup.addEventListener('click', e => {
+        const username = signupUsername.value; // TODO add display name
+        const email = signupEmail.value;
+        const pass = signupPassword.value;
+        const passVerify = signupPasswordVerify.value;
+        const auth = firebase.auth();
+
+        if(pass !== passVerify) {
+            alert("Passwords do not match!"); // TODO make this a proper css error
+        } else {
+            // Sign in
+            const promise = auth.createUserWithEmailAndPassword(email, pass);
+
+            // Error handling
+            promise
+            .then(() => {
+                $('.cd-user-modal').removeClass('is-visible');  // Dismiss modal after successful signup
+            })
+            .catch(e => {
+                console.log(e.message);
+            });
+        }
+    });
+
+    // Show/Hide buttons based on user state
+    firebase.auth().onAuthStateChanged(firebaseUser => {
+        if (firebaseUser) {
+            console.log(firebaseUser); // TODO remove later
+            btnLaunchSigninModal.style = "display: none;";
+            btnLogout.style = "";
+        } else {
+            btnLaunchSigninModal.style = "";
+            btnLogout.style = "display: none;";
+        }
+    });
+}
+
+$(document).ready(function () {
+	// FIREBASE STUFF
+	initFirebase();
+
+	// TEMPLATES
+	// TODO MAKE INTO PROMISES
+    $("#login-modal-content").load("templates/login-modal-template.html", function () {
+        $("#navbar-general").load("templates/navbar2.html", function () {
+            initializeEverything(); // initialize everything when done loading templates
+    	});
+    });
+});
+
+function initializeEverything() {
+    initButtons(); // initialize the buttons when done loading
+
+	// ***************************************************
+	// *************** LOGIN STUFF ***********************
+	// ***************************************************
 	var $form_modal = $('.cd-user-modal'),
 		$form_login = $form_modal.find('#cd-login'),
 		$form_signup = $form_modal.find('#cd-signup'),
@@ -91,34 +209,7 @@ jQuery(document).ready(function($){
 		event.preventDefault();
 		$form_signup.find('input[type="email"]').toggleClass('has-error').next('span').toggleClass('is-visible');
 	});
-
-
-	// TODO Remove this if not needed
-	//IE9 placeholder fallback
-	//credits http://www.hagenburger.net/BLOG/HTML5-Input-Placeholder-Fix-With-jQuery.html
-	/*if(!Modernizr.input.placeholder){
-		$('[placeholder]').focus(function() {
-			var input = $(this);
-			if (input.val() == input.attr('placeholder')) {
-				input.val('');
-		  	}
-		}).blur(function() {
-		 	var input = $(this);
-		  	if (input.val() == '' || input.val() == input.attr('placeholder')) {
-				input.val(input.attr('placeholder'));
-		  	}
-		}).blur();
-		$('[placeholder]').parents('form').submit(function() {
-		  	$(this).find('[placeholder]').each(function() {
-				var input = $(this);
-				if (input.val() == input.attr('placeholder')) {
-			 		input.val('');
-				}
-		  	})
-		});
-	}*/
-
-});
+}
 
 
 //credits https://css-tricks.com/snippets/jquery/move-cursor-to-end-of-textarea-or-input/
