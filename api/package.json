@@ -15,13 +15,13 @@
     "debug": "~2.6.9",
     "ejs": "~2.6.1",
     "express": "^4.17.1",
-    "http-errors": "~1.6.3",
-    "mongodb": "^3.5.4",
-    "monk": "^7.1.2",
-    "morgan": "~1.9.1",
     "gcp-metadata": "^4.1.0",
     "google-auth-library": "^6.0.1",
+    "http-errors": "~1.6.3",
     "mocha": "^7.0.0",
+    "mongodb": "^3.6.0",
+    "monk": "^7.1.2",
+    "morgan": "~1.9.1",
     "supertest": "^4.0.2"
   }
 }
