@@ -14,6 +14,23 @@ function initFirebase() {
     firebase.initializeApp(firebaseConfig);
 }
 
+$(document).ready(function () {
+	// FIREBASE STUFF
+	initFirebase();
+
+	// TEMPLATES
+	// TODO MAKE INTO PROMISES
+    $("#login-modal-content").load("templates/login-modal-template.html", function () {
+        $("#navbar-general").load("templates/navbar2.html", function () {
+            initializeEverything(); // initialize everything when done loading templates
+    	});
+    });
+});
+
+
+// ***************************************************
+// *************** BUTTONS STUFF *********************
+// ***************************************************
 function initButtons() {
     // Login Variables
     const usernameLogin = document.getElementById("signin-email");
@@ -97,19 +114,6 @@ function initButtons() {
         }
     });
 }
-
-$(document).ready(function () {
-	// FIREBASE STUFF
-	initFirebase();
-
-	// TEMPLATES
-	// TODO MAKE INTO PROMISES
-    $("#login-modal-content").load("templates/login-modal-template.html", function () {
-        $("#navbar-general").load("templates/navbar2.html", function () {
-            initializeEverything(); // initialize everything when done loading templates
-    	});
-    });
-});
 
 function initializeEverything() {
     initButtons(); // initialize the buttons when done loading
