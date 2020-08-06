@@ -43,7 +43,7 @@ function getUsername() {
 
 function initializeEverything() {
 	// ***************************************************
-	// *************** BUTTONS STUFF *********************
+	// *************** BUTTON STUFF **********************
 	// ***************************************************
 	// Login Variables
 	const usernameLogin = document.getElementById("signin-email");
