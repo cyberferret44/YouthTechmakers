@@ -5,16 +5,25 @@
                 var xhttp = new XMLHttpRequest();
                 xhttp.onreadystatechange = function() {
                     if (this.readyState == 4 && this.status == 200) {
-                    document.getElementById("demo").innerHTML = this.responseText;
+                        document.getElementById("demo").innerHTML = this.responseText;
                     }
                 };
                 xhttp.open("GET", "watched", true);
                 xhttp.send();
             }
         </script>
+        <script defer src="js/user-test.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script defer src="https://www.gstatic.com/firebasejs/7.16.1/firebase-app.js"></script>
+        <script defer src="https://www.gstatic.com/firebasejs/7.16.1/firebase-auth.js"></script>
+        <script defer src="https://www.gstatic.com/firebasejs/7.16.1/firebase-firestore.js"></script>
     </head>
     <body>
         <button type="button" onclick="testMethod()">Test Button</button>
         <p id="demo"></p>
+
+        <br/>
+        <button type="button" onclick="testMethod2()">Show Username</button>
+        <p id="demo2"></p>
     </body>
 </html>

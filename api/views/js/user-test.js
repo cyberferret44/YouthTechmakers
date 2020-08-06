@@ -17,12 +17,26 @@ function initFirebase() {
 $(document).ready(function () {
 	// FIREBASE STUFF
 	initFirebase();
-
-	// TEMPLATES
-	// TODO MAKE INTO PROMISES
-    $("#login-modal-content").load("templates/login-modal-template.html", function () {
-        $("#navbar-general").load("templates/navbar2.html", function () {
-            initializeEverything(); // initialize everything when done loading templates
-    	});
-    });
 });
+
+function getUserId() {
+    return firebase.auth().currentUser ? firebase.auth().currentUser.uid : null;
+}
+
+function getUsername() {
+    var auth = firebase.auth();
+    if(auth.currentUser) {
+        if(auth.currentUser.displayName) {
+            return auth.currentUser.displayName;
+        } else {
+            var email = auth.currentUser.email;
+            return email.substring(0, email.lastIndexOf("@"));
+        }
+    } else {
+        return null;
+    }
+}
+
+function testMethod2() {
+    document.getElementById("demo2").innerHTML = getUsername();
+}
