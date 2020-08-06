@@ -20,6 +20,9 @@ $(document).ready(function () {
 	});
 });
 
+// ***************************************************
+// *************** USER FUNCTIONS ********************
+// ***************************************************
 function getUserId() {
 	return firebase.auth().currentUser ? firebase.auth().currentUser.uid : null;
 }
