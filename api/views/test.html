@@ -9,8 +9,15 @@
                     document.getElementById("demo").innerHTML = this.responseText;
                 }
             };
-            xhttp.open("GET", "watched", true);
-            xhttp.send();
+
+            var request = {
+                'uid': getUserId(),
+                'videoId': "asfd"
+            }
+            xhttp.open("POST", "/watched", true);
+            xhttp.setRequestHeader('Content-Type', 'application/json;charset=UTF-8')
+            var req = JSON.stringify(request);
+            xhttp.send(req);
         }
 
         function testMethod2() {
