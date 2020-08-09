@@ -8,6 +8,7 @@ $(document).ready(function () {
         // Grab the video ID from the element clicked
         var id = $(this).attr('data-youtube-id');
 
+        // TODO only trigger this logic after ~50% of video is watched?
         recordVideoWatched(id);
      });
 });
