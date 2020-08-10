@@ -81,7 +81,7 @@ function initializeEverything() {
 			})
 			.catch(e => {
 				console.log(e.message);
-				alert('Invalid Login');
+				alert('Invalid Login'); // TODO change this to show a legitimate message...
 			});
 	});
 
@@ -118,7 +118,6 @@ function initializeEverything() {
 	// Show/Hide buttons based on user state
 	firebase.auth().onAuthStateChanged(firebaseUser => {
 		if (firebaseUser) {
-			console.log(firebaseUser); // TODO remove later
 			btnLaunchSigninModal.style = "display: none;";
 			btnLogout.style = "";
 		} else {

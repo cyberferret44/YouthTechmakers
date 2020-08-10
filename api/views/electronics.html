@@ -9,20 +9,18 @@
 	<title>Electronics</title>
 
 	<!-- CSS -->
-	<link type="text/css" rel="stylesheet" href="css/bootstrap.min.css" />
 	<link type="text/css" rel="stylesheet" href="css/learning-style.css" />
 	<link type="text/css" rel="stylesheet" href="css/style.css" />
 	<link type="text/css" rel="stylesheet" href="css/login-style.css" />
 	<link type="text/css" rel="stylesheet" href="css/test.css" />
 
 	<!-- javascript third party -->
-	<script type="text/javascript" src="js/third-party/main.js"></script>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+	<!-- <script type="text/javascript" src="js/third-party/main.js"></script>  TODO remove -->
 
 	<!-- javascript -->
 	<script type="text/javascript" src="js/youtube-modal.js"></script>
-	<script type="text/javascript" src="js/record-videos.js"></script>
 
 	<!-- Templates -->
 	<div id="login-modal-content"></div>
@@ -40,7 +38,8 @@
 	<div id="navbar-general"><header role="banner"></header></div>
 
 	<div class="class-table">
-		<div class="row">
+		<!-- TODO combine row and level-row classes -->
+		<div class="row level-row" style="display: none;">
 			<div class="level-cell">
 				Level 1
 			</div>
@@ -51,7 +50,7 @@
 				</a>
 			</div>
 		</div>
-		<div class="row">
+		<div class="row level-row" style="display: none;">
 			<div class="level-cell">
 				Level 2
 			</div>
@@ -68,7 +67,7 @@
 				</a>
 			</div>
 		</div>
-		<div class="row">
+		<div class="row level-row" style="display: none;">
 			<div class="level-cell">
 				Level 3
 			</div>
@@ -91,6 +90,7 @@
 	<script defer src="https://www.gstatic.com/firebasejs/7.16.1/firebase-auth.js"></script>
 	<script defer src="https://www.gstatic.com/firebasejs/7.16.1/firebase-firestore.js"></script>
 	<script defer src="js/authentication.js"></script>
+	<script defer src="js/record-videos.js"></script>
 </body>
 
 </html>
