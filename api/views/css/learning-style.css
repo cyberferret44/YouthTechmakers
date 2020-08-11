@@ -454,20 +454,9 @@ add class to the body to reveal */
     -webkit-transform: translate(0%, 0%);
 }
 
-/* Create three equal columns that floats next to each other */
-.level-cell {
-    float: left;
-    width: 10%;
-    padding-top: 15px;
-    padding-bottom: 15px;
-    max-height: 300px;
-    height: fit-content;
-    text-align: center;
-}
-
 .column1 {
     float: left;
-    width: 90%;
+    width: 100%;
     padding-top: 15px;
     padding-bottom: 15px;
     max-height: 300px;
@@ -477,7 +466,7 @@ add class to the body to reveal */
 
 .column2 {
     float: left;
-    width: 45%;
+    width: 50%;
     padding-top: 15px;
     padding-bottom: 15px;
     max-height: 300px;
@@ -487,7 +476,7 @@ add class to the body to reveal */
 
 .column3 {
     float: left;
-    width: 30%;
+    width: 33.333%;
     padding-top: 15px;
     padding-bottom: 15px;
     max-height: 300px;
@@ -551,3 +540,58 @@ add class to the body to reveal */
     display: table;
     clear: both;
 }
+
+/* Stuf for side nav bar */
+body {
+    font-family: "Lato", sans-serif;
+  }
+  
+  .sidenav {
+    width: 160px;
+    position: fixed;
+    border-radius: 25px;
+    border: 4px solid rgb(160, 255, 255, .8);
+    z-index: 1;
+    top: 20%;
+    left: 20px;
+    background-color: rgba(0, 217, 255, 0.1);
+    overflow-x: hidden;
+    padding: 8px 0;
+  }
+  
+  .sidenav a {
+    padding: 6px 8px 6px 16px;
+    text-decoration: none;
+    font-size: 35px;
+    color: 	rgb(0,255,255);
+    display: block;
+    text-align: center;
+    padding-top: 20px;
+    padding-bottom: 20px;
+  }
+
+  .sidenav p {
+    padding: 6px 8px 6px 16px;
+    text-decoration: none;
+    font-size: 35px;
+    color: 	rgb(0,255,255);
+    display: block;
+    text-align: center;
+    padding-top: 20px;
+    padding-bottom: 20px;
+  }
+  
+  .sidenav a:hover {
+    color: #ffffff;
+  }
+  
+  .main {
+    margin-left: 180px; /* Same width as the sidebar + left position in px */
+    font-size: 28px; /* Increased text to enable scrolling */
+    padding: 0px 10px;
+  }
+  
+  @media screen and (max-height: 450px) {
+    .sidenav {padding-top: 15px;}
+    .sidenav a {font-size: 18px;}
+  }
