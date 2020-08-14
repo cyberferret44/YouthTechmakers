@@ -484,6 +484,7 @@ add class to the body to reveal */
     text-align: center;
 }
 
+/* TODO remove this later... */
 .asdf {
     transition: 0.5s;
 }

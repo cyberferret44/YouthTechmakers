@@ -1,3 +1,6 @@
+// ***************************************************
+// *************** FIREBASE INIT *********************
+// ***************************************************
 $(document).ready(function () {
 	// Initialize Firebase
 	const firebaseConfig = {
@@ -21,6 +24,11 @@ $(document).ready(function () {
 });
 
 // ***************************************************
+// ***************** VARIABLES ***********************
+// ***************************************************
+var shouldSendVerificationEmail = false;
+
+// ***************************************************
 // *************** USER FUNCTIONS ********************
 // ***************************************************
 function getUserId() {
@@ -30,12 +38,8 @@ function getUserId() {
 function getUsername() {
 	var auth = firebase.auth();
 	if (auth.currentUser) {
-		if (auth.currentUser.displayName) {
-			return auth.currentUser.displayName;
-		} else {
-			var email = auth.currentUser.email;
-			return email.substring(0, email.lastIndexOf("@"));
-		}
+		var email = auth.currentUser.email;
+		return email.substring(0, email.lastIndexOf("@"));
 	} else {
 		return null;
 	}
@@ -92,7 +96,6 @@ function initializeEverything() {
 
 	// Add sign up event
 	btnSignup.addEventListener('click', e => {
-		const username = signupUsername.value; // TODO add display name
 		const email = signupEmail.value;
 		const pass = signupPassword.value;
 		const passVerify = signupPasswordVerify.value;
@@ -102,28 +105,8 @@ function initializeEverything() {
 			alert("Passwords do not match!"); // TODO make this a proper css error
 		} else {
 			// Sign in
-			const promise = auth.createUserWithEmailAndPassword(email, pass); // TODO verify email?
-
-
-			// SEND EMAIL
-			//sendSignInLinkToEmail 
-			var actionCodeSettings = {
-				// URL you want to redirect back to. The domain (www.example.com) for this
-				// URL must be whitelisted in the Firebase Console.
-				url: 'https://www.youthtechmakers.com/complete-signup',
-				// This must be true.
-				handleCodeInApp: true,
-				iOS: {
-					bundleId: 'com.example.ios'
-				},
-				android: {
-					packageName: 'com.example.android',
-					installApp: true,
-					minimumVersion: '12'
-				},
-				dynamicLinkDomain: 'example.page.link'
-			};
-
+			const promise = auth.createUserWithEmailAndPassword(email, pass);
+			shouldSendVerificationEmail = true;
 
 			// Error handling
 			promise
@@ -139,6 +122,14 @@ function initializeEverything() {
 	// Show/Hide buttons based on user state
 	firebase.auth().onAuthStateChanged(firebaseUser => {
 		if (firebaseUser) {
+			if (firebaseUser.emailVerified) {
+				// TODO load session info??
+			} else if(this.shouldSendVerificationEmail) {
+				firebaseUser.sendEmailVerification();
+				alert('A verification email has been sent to ' + firebaseUser.email);
+			} else {
+				alert('Your email is not verified, please confirm the email sent to ' + firebaseUser.email);
+			}
 			btnLaunchSigninModal.style = "display: none;";
 			btnLogout.style = "";
 		} else {
@@ -163,7 +154,6 @@ function initializeEverything() {
 
 	//open modal
 	$main_nav.on('click', function (event) {
-
 		if ($(event.target).is($main_nav)) {
 			// on mobile open the submenu
 			$(this).children('ul').toggleClass('is-visible');
@@ -176,7 +166,6 @@ function initializeEverything() {
 				login_selected();
 			}
 		}
-
 	});
 
 	//close modal
