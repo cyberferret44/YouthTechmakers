@@ -484,15 +484,6 @@ add class to the body to reveal */
     text-align: center;
 }
 
-/* TODO remove this later... */
-.asdf {
-    transition: 0.5s;
-}
-
-.asdf:hover {
-    background-color: rgb(255, 255, 255, .3);
-}
-
 .class-table {
     margin-left: 20px;
     margin-right: 20px;
