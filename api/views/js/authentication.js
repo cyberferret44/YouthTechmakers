@@ -102,7 +102,28 @@ function initializeEverything() {
 			alert("Passwords do not match!"); // TODO make this a proper css error
 		} else {
 			// Sign in
-			const promise = auth.createUserWithEmailAndPassword(email, pass);
+			const promise = auth.createUserWithEmailAndPassword(email, pass); // TODO verify email?
+
+
+			// SEND EMAIL
+			//sendSignInLinkToEmail 
+			var actionCodeSettings = {
+				// URL you want to redirect back to. The domain (www.example.com) for this
+				// URL must be whitelisted in the Firebase Console.
+				url: 'https://www.youthtechmakers.com/complete-signup',
+				// This must be true.
+				handleCodeInApp: true,
+				iOS: {
+					bundleId: 'com.example.ios'
+				},
+				android: {
+					packageName: 'com.example.android',
+					installApp: true,
+					minimumVersion: '12'
+				},
+				dynamicLinkDomain: 'example.page.link'
+			};
+
 
 			// Error handling
 			promise
