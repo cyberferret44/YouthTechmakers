@@ -84,8 +84,9 @@ function initializeEverything() {
 				$('.cd-user-modal').removeClass('is-visible');  // Dismiss modal after successful login
 			})
 			.catch(e => {
-				console.log(e.message);
-				alert('Invalid Login'); // TODO change this to show a legitimate message...
+				console.log(e.message); // TODO remove this later
+				$('#signin-email-error').html('Password is incorrect or user does not exist');
+				$('#signin-email').toggleClass('has-error').next('span').toggleClass('is-visible');
 			});
 	});
 
@@ -102,7 +103,8 @@ function initializeEverything() {
 		const auth = firebase.auth();
 
 		if (pass !== passVerify) {
-			alert("Passwords do not match!"); // TODO make this a proper css error
+			$('#signup-password-error').html('Passwords do not match!');
+			$('#signup-password').toggleClass('has-error').next('span').toggleClass('is-visible');
 		} else {
 			// Sign in
 			const promise = auth.createUserWithEmailAndPassword(email, pass);
@@ -119,6 +121,35 @@ function initializeEverything() {
 		}
 	});
 
+	// disable error messages on change
+	// Sign in
+	$('#signin-email').on('input', function() {
+		$('#signin-email').removeClass('has-error').next('span').removeClass('is-visible');
+		$('#signin-password').removeClass('has-error').next('span').removeClass('is-visible');
+	});
+	$('#signin-password').on('input', function() {
+		$('#signin-email').removeClass('has-error').next('span').removeClass('is-visible');
+		$('#signin-password').removeClass('has-error').next('span').removeClass('is-visible');
+	});
+
+	// Sign up
+	$('#signup-email').on('input', function() {
+		$('#signup-email').removeClass('has-error').next('span').removeClass('is-visible');
+	});
+	$('#signup-password').on('input', function() {
+		$('#signup-password').removeClass('has-error').next('span').removeClass('is-visible');
+		$('#signup-password-verify').removeClass('has-error').next('span').removeClass('is-visible');
+	});
+	$('#signup-password-verify').on('input', function() {
+		$('#signup-password').removeClass('has-error').next('span').removeClass('is-visible');
+		$('#signup-password-verify').removeClass('has-error').next('span').removeClass('is-visible');
+	});
+
+	// Forgot email
+	$('#reset-email').on('input', function() {
+		$('#reset-email').removeClass('has-error').next('span').removeClass('is-visible');
+	});
+
 	// Show/Hide buttons based on user state
 	firebase.auth().onAuthStateChanged(firebaseUser => {
 		if (firebaseUser) {
@@ -128,7 +159,7 @@ function initializeEverything() {
 				firebaseUser.sendEmailVerification();
 				alert('A verification email has been sent to ' + firebaseUser.email);
 			} else {
-				alert('Your email is not verified, please confirm the email sent to ' + firebaseUser.email);
+				alert('Your email is not verified.  Please confirm the email sent to ' + firebaseUser.email);
 			}
 			btnLaunchSigninModal.style = "display: none;";
 			btnLogout.style = "";
@@ -221,16 +252,6 @@ function initializeEverything() {
 		$form_signup.removeClass('is-selected');
 		$form_forgot_password.addClass('is-selected');
 	}
-
-	//REMOVE THIS - it's just to show error messages 
-	$form_login.find('input[type="submit"]').on('click', function (event) {
-		event.preventDefault();
-		$form_login.find('input[type="email"]').toggleClass('has-error').next('span').toggleClass('is-visible');
-	});
-	$form_signup.find('input[type="submit"]').on('click', function (event) {
-		event.preventDefault();
-		$form_signup.find('input[type="email"]').toggleClass('has-error').next('span').toggleClass('is-visible');
-	});
 }
 
 // TODO remove this, I think it's unnecessary

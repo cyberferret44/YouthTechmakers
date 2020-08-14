@@ -15,14 +15,14 @@
                     <label class="image-replace cd-email" for="signin-email">E-mail</label>
                     <input id="signin-email" class="full-width has-padding has-border" type="email"
                         placeholder="E-mail">
-                    <span class="cd-error-message">Error message here!</span>
+                    <span  id="signin-email-error" class="cd-error-message">Error message here!</span>
                 </p>
 
                 <p class="fieldset">
                     <label class="image-replace cd-password" for="signin-password">Password</label>
                     <input id="signin-password" class="full-width has-padding has-border" type="password"
                         placeholder="Password">
-                    <span class="cd-error-message">Error message here!</span>
+                    <span id="signin-password-error" class="cd-error-message">Error message here!</span>
                 </p>
 
                 <!--<p class="fieldset">
@@ -44,25 +44,26 @@
             <form class="cd-form">
                 <p class="fieldset">
                     <label class="image-replace cd-email" for="signup-email">E-mail</label>
-                    <input class="full-width has-padding has-border" id="signup-email" type="email"
+                    <input class="full-width has-padding has-border" id="signup-email" type="text"
                         placeholder="E-mail">
-                    <span class="cd-error-message">Error message here!</span>
+                    <span id="signup-email-error" class="cd-error-message"></span>
                 </p>
 
                 <p class="fieldset">
                     <label class="image-replace cd-password" for="signup-password">Password</label>
                     <input class="full-width has-padding has-border" id="signup-password" type="password"
                         placeholder="Password">
-                    <span class="cd-error-message">Error message here!</span>
+                    <span id="signup-password-error" class="cd-error-message"></span>
                 </p>
 
                 <p class="fieldset">
                     <label class="image-replace cd-password" for="signup-password">Re-Type Password</label>
                     <input class="full-width has-padding has-border" id="signup-password-verify" type="password"
                         placeholder="Re-Type Password">
-                    <span class="cd-error-message">Error message here!</span>
+                    <span id="signup-password-verify-error" class="cd-error-message"></span>
                 </p>
 
+                <!-- TODO EULA? -->
                 <!--<p class="fieldset">
                     <input type="checkbox" id="accept-terms">
                     <label for="accept-terms">I agree to the <a href="#0">Terms</a></label>
@@ -72,8 +73,6 @@
                     <input id="btnSignup" class="full-width has-padding" type="submit" value="Create account">
                 </p>
             </form>
-
-            <!-- <a href="#0" class="cd-close-form">Close</a> -->
         </div> <!-- cd-signup -->
 
         <div id="cd-reset-password">
@@ -85,9 +84,9 @@
             <form class="cd-form">
                 <p class="fieldset">
                     <label class="image-replace cd-email" for="reset-email">E-mail</label>
-                    <input class="full-width has-padding has-border" id="reset-email" type="email"
+                    <input class="full-width has-padding has-border" id="reset-email" type="text"
                         placeholder="E-mail">
-                    <span class="cd-error-message">Error message here!</span>
+                    <span id="reset-email-error" class="cd-error-message">Error message here!</span>
                 </p>
 
                 <p class="fieldset">
