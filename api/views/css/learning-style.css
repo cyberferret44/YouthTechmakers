@@ -535,7 +535,7 @@ add class to the body to reveal */
 }
 
 /* Clear floats after the columns */
-.row:after {
+.level-row:after {
     content: "";
     display: table;
     clear: both;

@@ -82,7 +82,7 @@ var levelsToIdsMap = {};
 var idsToHtmlElementsMap = {};
 var currentLevel = 1;
 function populateMaps() {
-    $(".level-row").each(function (index) {
+    $(".learning-row").each(function (index) {
         var elements = [];
         var ids = [];
         $(this).find('.js-trigger-video-modal').each(function () {

@@ -16,10 +16,8 @@ $(document).ready(function () {
 	firebase.initializeApp(firebaseConfig);
 
 	// Only initialize buttons if we load the templates successfully
-	$("#login-modal-content").load("templates/login-modal-template.html", function () {
-		$("#navbar-general").load("templates/navbar2.html", function () {
-			initializeEverything(); // initialize everything when done loading templates
-		});
+	$("#navbar-general").load("templates/navbar2.html", function () {
+		initializeEverything(); // initialize everything when done loading templates
 	});
 });
 
