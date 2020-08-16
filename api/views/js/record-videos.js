@@ -1,6 +1,4 @@
 $(document).ready(function () {
-    // TODO add something to unlock videos accordingly...
-    // TODO make this method async
     populateMaps();
 
      // Click on video thumbnail or link
