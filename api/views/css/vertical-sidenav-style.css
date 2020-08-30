@@ -1,0 +1,81 @@
+body {
+    font-family: "Lato", sans-serif;
+  }
+  
+  .sidenav-vertical {
+    height: 100%;
+    width: 160px;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: #111;
+    overflow-x: hidden;
+  }
+
+  .sidenav-vertical .level-indicator {
+    padding: 6px 8px 6px 16px;
+    text-decoration: none;
+    font-size: 35px;
+    color: #C0C0C0;
+    display: block;
+    text-align: center;
+    text-decoration: underline;
+  }
+
+  .sidenav-vertical .selector {
+    padding: 6px 8px 6px 16px;
+    text-decoration: none;
+    font-size: 35px;
+    display: block;
+    text-align: center;
+    margin-top: 0;
+    margin-bottom: 0;
+    transition: 0.5s;
+    border-top: none;
+  }
+
+  .sidenav-vertical .completed {
+    color: #E0E0E0;
+  }
+
+  .sidenav-vertical .completed:hover {
+    background-color: #a0a0a0;
+    transition: 0.5s;
+  }
+
+  .sidenav-vertical .current {
+    color: #E0E0E0;
+    font-weight: bolder;
+  }
+
+  .sidenav-vertical .current:hover {
+    background-color: #a0a0a0;
+    transition: 0.5s;
+  }
+
+  .sidenav-vertical .locked {
+    color: #404040;
+  }
+
+  .sidenav-vertical .locked:hover {
+    cursor: default;
+  }
+
+  .sidenav-vertical .login-logout {
+    padding: 6px 8px 6px 16px;
+    text-decoration: none;
+    font-size: 35px;
+    color: #C0C0C0;
+    display: block;
+    text-align: center;
+    margin-top: 0;
+    margin-bottom: 0;
+    bottom: 20px;
+    width: 100%;
+  }
+
+  @media screen and (max-height: 450px) {
+    .sidenav-vertical {padding-top: 15px;}
+    .sidenav-vertical a {font-size: 18px;}
+  }

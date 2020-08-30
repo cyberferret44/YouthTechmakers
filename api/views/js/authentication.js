@@ -16,9 +16,17 @@ $(document).ready(function () {
 	firebase.initializeApp(firebaseConfig);
 
 	// Only initialize buttons if we load the templates successfully
-	$("#navbar-general").load("templates/navbar2.html", function () {
-		initializeEverything(); // initialize everything when done loading templates
-	});
+	// TODO this should be moved to a different file all-together...
+	// TODO make this watch navbar and initiatlize events when elements are available
+	if(document.getElementById("navbar-general")) {
+		$("#navbar-general").load("templates/navbar2.html", function () {
+			initializeEverything(); // initialize everything when done loading templates
+		});
+	} else if (document.getElementById("sidenav-vertical")) {
+		$("#sidenav-vertical").load("templates/vertical-nav.html", function () {
+			initializeEverything(); // initialize everything when done loading templates
+		});
+	}
 });
 
 // ***************************************************
@@ -44,6 +52,11 @@ function getUsername() {
 }
 
 function initializeEverything() {
+	// ***************************************************
+	// **************** LEVEL STUFF **********************
+	// ***************************************************
+	populateLevelNav(); // TODO fix this messy class logic....
+
 	// ***************************************************
 	// *************** BUTTON STUFF **********************
 	// ***************************************************

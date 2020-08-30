@@ -492,26 +492,22 @@ add class to the body to reveal */
     border: 4px solid rgb(255, 255, 255, .8);
     padding: 20px;
     padding-bottom: 100%; /* TODO remove this later */
-    margin-top: 20px;
 }
 
 .clickable-icon1 {
     max-width: 24%;
-    cursor: pointer;
     max-height: 90%;
     object-fit: contain;
 }
 
 .clickable-icon2 {
     max-width: 48%;
-    cursor: pointer;
     max-height: 90%;
     object-fit: contain;
 }
 
 .clickable-icon3 {
     max-width: 72;
-    cursor: pointer;
     max-height: 90%;
     object-fit: contain;
 }
@@ -592,6 +588,7 @@ body {
     margin-left: 180px; /* Same width as the sidebar + left position in px */
     font-size: 28px; /* Increased text to enable scrolling */
     padding: 0px 10px;
+    padding-top: 20px;
   }
   
   @media screen and (max-height: 450px) {

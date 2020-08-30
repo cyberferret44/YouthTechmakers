@@ -12,6 +12,7 @@
 	<link type="text/css" rel="stylesheet" href="css/learning-style.css" />
 	<link type="text/css" rel="stylesheet" href="css/login-style.css" />
 	<link type="text/css" rel="stylesheet" href="css/style.css" />
+	<link type="text/css" rel="stylesheet" href="css/vertical-sidenav-style.css" /> <!-- TODO see if I can put this in the template -->
 
 	<!-- javascript third party -->
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
@@ -25,23 +26,13 @@
 	<div id="youtube-video-modal"></div>
 	<script>
 		$(function () {
-			$("#youtube-video-modal").load("templates/youtube-video-modal-template.html");
-			$("#navbar-general").load("templates/navbar2.html");
+			$("#youtube-video-modal").load("templates/youtube-video-modal-template.html");  // TODO move this to js file
 		});
 	</script>
 </head>
 
 <body style="background-color: black;">
-	<div id="navbar-general">
-		<header role="banner"></header>
-	</div>
-
-	<div class="sidenav">
-		<p class="header">Levels</p>
-		<a class="selector" href="#level1">1</a>
-		<a class="selector" href="#level2">2</a>
-		<a class="selector" href="#level3">3</a>
-	</div>
+	<div id="sidenav-vertical"></div>
 
 	<div class="main">
 		<div class="class-table">
@@ -49,7 +40,7 @@
 				<div class="column1">
 					<a href="https://www.youtube.com/watch?v=g6geO58R7Tk" data-youtube-id="g6geO58R7Tk"
 						class="video-thumb js-trigger-video-modal">
-						<img class="video-banner-img clickable-icon1" src="img/icons/breadboards.png" alt="" />
+						<img class="video-banner-img clickable-icon1" src="img/icons/breadboards.png" alt="BREADBOARDS" />
 					</a>
 				</div>
 			</div>
@@ -57,13 +48,13 @@
 				<div class="column2">
 					<a href="https://www.youtube.com/watch?v=-dRR8v1OJ-4" data-youtube-id="-dRR8v1OJ-4"
 						class="video-thumb js-trigger-video-modal">
-						<img class="video-banner-img clickable-icon2" src="img/icons/switches.png" alt="" />
+						<img class="video-banner-img clickable-icon2" src="img/icons/switches.png" alt="SWITCHES" />
 					</a>
 				</div>
 				<div class="column2">
 					<a href="https://www.youtube.com/watch?v=X9Ym4OFHnEQ" data-youtube-id="X9Ym4OFHnEQ"
 						class="video-thumb js-trigger-video-modal">
-						<img class="video-banner-img clickable-icon2" src="img/icons/resistors.png" alt="" />
+						<img class="video-banner-img clickable-icon2" src="img/icons/resistors.png" alt="RESISTORS" />
 					</a>
 				</div>
 			</div>
@@ -71,7 +62,7 @@
 				<div class="column1">
 					<a href="https://www.youtube.com/watch?v=g6geO58R7Tk" data-youtube-id="g6geO58R7Tk"
 						class="video-thumb js-trigger-video-modal">
-						<img class="video-banner-img clickable-icon1 asdf" src="img/icons/electronics-blue.png" alt="" />
+						<img class="video-banner-img clickable-icon1" src="img/icons/locked.png" alt="FAKE" />
 					</a>
 				</div>
 			</div>

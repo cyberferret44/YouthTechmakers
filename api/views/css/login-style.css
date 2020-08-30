@@ -166,16 +166,16 @@ header[role="banner"]::after {
   .main-nav a.cd-signin {
     background: #2f889a;
     border: none;
-    padding: 0.6em 1em;
-    border: 1px solid rgba(255, 255, 255, 0.6);
-    border-radius: 50em;
+    margin-bottom: 30px;
+    padding-top: 20px;
+    padding-bottom: 20px;
   }
   .main-nav a.cd-signout {
     background: rgba(215, 102, 102, 0.8);
     border: none;
-    padding: 0.6em 1em;
-    border: 1px solid rgba(255, 255, 255, 0.6);
-    border-radius: 50em;
+    margin-bottom: 30px;
+    padding-top: 20px;
+    padding-bottom: 20px;
   }
 }
 
@@ -464,7 +464,7 @@ xsigin/signup popup
   position: absolute;
   width: 100%;
   left: 0;
-  bottom: -30px;
+  bottom: -40px;
   text-align: center;
   font-size: 14px;
   font-size: 0.875rem;
